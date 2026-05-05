@@ -32,7 +32,7 @@ try:
             continue
 
         if distance_mm == 0.0:
-            print('[out of range or threshold not calibrated — run update_threshold]')
+            print('[0 mm — target out of range (<150 mm) or threshold not calibrated]')
             continue
 
         print(f'Distance: {distance_mm:8.2f} mm  ({distance_mm / 10:6.2f} cm)')
