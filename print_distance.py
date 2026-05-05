@@ -3,19 +3,19 @@ import os
 sys.path.insert(0, os.path.dirname(__file__))
 
 import serial
-import serial_protocol
+import ld2413
 
 PORT = '/dev/ttyUSB0'
 
-ser = serial.Serial(PORT, serial_protocol.BAUD_RATE, timeout=2)
-print(f'Opened {PORT} at {serial_protocol.BAUD_RATE} baud')
+ser = serial.Serial(PORT, ld2413.BAUD_RATE, timeout=2)
+print(f'Opened {PORT} at {ld2413.BAUD_RATE} baud')
 
 # Read firmware version
 ser.flushInput()
-if serial_protocol.enable_configuration(ser):
-    version = serial_protocol.read_firmware_version(ser)
+if ld2413.enable_configuration(ser):
+    version = ld2413.read_firmware_version(ser)
     print(f'Firmware: {version}')
-    serial_protocol.end_configuration(ser)
+    ld2413.end_configuration(ser)
 else:
     print('(Could not read firmware version)')
 
@@ -23,8 +23,8 @@ print('Reading distance — Ctrl+C to stop\n')
 
 try:
     while True:
-        frame = ser.read_until(serial_protocol.REPORT_TAIL)
-        distance_mm = serial_protocol.read_distance(frame)
+        frame = ser.read_until(ld2413.REPORT_TAIL)
+        distance_mm = ld2413.read_distance(frame)
 
         if distance_mm is None:
             if len(frame) > 0:

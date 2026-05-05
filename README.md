@@ -6,7 +6,7 @@ Python driver for the **HLK-LD2413** — a 24 GHz FMCW millimeter-wave radar sen
 
 | File | Description |
 |------|-------------|
-| `serial_protocol.py` | Protocol library — frame parsing and all serial commands |
+| `ld2413.py` | Protocol library — frame parsing and all serial commands |
 | `print_distance.py` | Read and print live distance measurements |
 | `calibrate.py` | One-time background noise calibration (run before first use) |
 
