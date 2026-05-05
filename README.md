@@ -95,4 +95,4 @@ Always call `enable_configuration` first and `end_configuration` when done — o
 - Measuring through a plastic tank lid works for most non-metallic plastics.
 - Minimum detection distance: 150 mm.
 - The sensor retains calibration across power cycles.
-- Manufacturer resources (datasheet, host tool, firmware): [Hi-Link Google Drive](https://drive.google.com/drive/folders/1gT_a3_ARDGK7ZcbRR1IHGniUm5Zb9XuW)
+- Manufacturer resources (datasheet, host tool): [Hi-Link Google Drive](https://drive.google.com/drive/folders/1gT_a3_ARDGK7ZcbRR1IHGniUm5Zb9XuW)
