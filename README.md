@@ -1,4 +1,4 @@
-# pyld2413
+# hlk-ld2413-reader
 
 Python driver for the **HLK-LD2413** — a 24 GHz FMCW millimeter-wave radar sensor for high-precision liquid and material level detection (range 0.15–10 m, accuracy ±3 mm).
 
