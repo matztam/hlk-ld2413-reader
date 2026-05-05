@@ -67,6 +67,28 @@ read_reporting_cycle(ser)         # → int ms
 update_threshold(ser)             # save background noise calibration
 ```
 
+## Configuring the sensor
+
+Configuration changes are written to the sensor's flash and survive power cycles — you only need to run this once.
+
+```python
+import serial, ld2413
+
+ser = serial.Serial('/dev/ttyUSB0', ld2413.BAUD_RATE, timeout=2)
+ser.flushInput()
+
+ld2413.enable_configuration(ser)
+
+ld2413.set_min_distance(ser, 150)    # minimum detection distance in mm (150–10500)
+ld2413.set_max_distance(ser, 5000)   # maximum detection distance in mm (150–10500)
+ld2413.set_reporting_cycle(ser, 160) # reporting interval in ms (50–1000)
+
+ld2413.end_configuration(ser)
+ser.close()
+```
+
+Always call `enable_configuration` first and `end_configuration` when done — otherwise the sensor stays in config mode and stops reporting.
+
 ## Notes
 
 - If the sensor always reports 0: run `calibrate.py` first (threshold not set).
